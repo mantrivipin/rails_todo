@@ -4,4 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true
+  validates :email, uniqueness: true
+  
+  has_many :project_users, dependent: :destroy
+  has_many :projects, through: :project_users
+  has_many :tasks, dependent: :destroy
+  
+  def admin?
+    user_type == 'A'
+  end
 end
