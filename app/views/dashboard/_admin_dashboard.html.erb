@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% if @project_count == 0 %>
-  <%= link_to 'New Project', new_project_path %>
+  <%= link_to 'Create a New Project', new_project_path %>
 <% else %>
   <span style="float: right">
     <% if params[:filter_by].present? && params[:filter_by] == 'project' %>
