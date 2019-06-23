@@ -1,0 +1,11 @@
+<h2> Add User to <%= @project.name %></h2>
+<br>
+<%= form_tag add_user_to_project_projects_path do %>
+  <%= hidden_field_tag :project_id, @project.id %>
+  <%= select_tag :user_id, options_from_collection_for_select(@users, "id", "name"), prompt: "Select User", class: 'form-control', required: true %>
+  <br><br>
+  <%= submit_tag "Add User"%>
+
+<% end %>
+<br>
+<%= link_to 'Back', projects_path %>

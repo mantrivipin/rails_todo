@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <% @projects.each do |project| %>
+          <th><%= project.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% Task::STATUS.reverse.each do |status| %>
+        <tr>
+          <td><%= status %></td>
+          <% @projects.each_with_index do |project, index| %>
+            <% tasks = get_task_by_status(project.tasks, status) %>
+            <td colspan=<%=index%>>
+              <% tasks.each do |task| %>
+                <p><%= task.title %><p>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,5 @@
+<% if current_user.admin? %>
+  <%= render partial: 'admin_dashboard' %>
+<% else %>
+  <%= render partial: 'user_dashboard' %>
+<% end %>

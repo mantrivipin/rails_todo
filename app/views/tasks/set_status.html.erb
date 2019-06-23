@@ -1,0 +1,10 @@
+<h2>Update Todo Status</h2>
+<br>
+<%= form_tag update_status_project_tasks_path(@task.project), method: :put do %>
+  <%= hidden_field_tag :task_id, @task.id %>
+  <%= select_tag :status, options_for_select([["Progress", "Progress"],["Done", "Done"]]), prompt: "Select Status", class: 'form-control', required: true %>
+  <br><br>
+  <%= submit_tag "Update Todo" %>
+<% end %>
+<br>
+<%= link_to 'Back', root_path %>
