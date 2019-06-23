@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to project_path(task_params[:project_id]), notice: 'Task was successfully created.' }
+        format.html { redirect_to project_path(task_params[:project_id]), notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
         @project = Project.find(task_params[:project_id])
